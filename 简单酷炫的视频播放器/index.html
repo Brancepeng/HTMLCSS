@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Flowplayer简单酷炫的视频播放器</title>
+    <meta name="keywords" content="Flowplayer,视频播放器" />
+    <meta name="description" content="Flowplayer是一款免费的WEB视频播放器。它支持播放flv、swf等流媒体和图片文件，能够非常流畅的播放视频文件，支持自定义配置和扩展。" />
+    <link rel="stylesheet" type="text/css" href="http://www.sucaihuo.com/jquery/css/common.css" />
+    <style type="text/css">
+        .demo{width:520px; margin:20px auto}
+    </style>
+</head>
+<body>
+<div class="head">
+    <div class="head_inner">
+        <a class="logo" href="http://www.sucaihuo.com">
+            <img alt="素材火logo" src="http://www.sucaihuo.com/Public/images/logo.jpg"/>
+        </a>
+    </div>
+</div>
+<div class="container" id="main">
+    <h2 class="title"><a href="http://www.sucaihuo.com/js/44.html" target="_blank">Flowplayer简单酷炫的视频播放器</a></h2>
+    <div class="demo" id="demo1">
+        <a href="demo.flv" style="display:block;width:520px;height:330px" id="player"></a>
+    </div>
+
+    <div class="demo" id="player2" style="width:520px; height:330px"></div>
+</div>
+<div class="foot">
+    Powered by sucaihuo.com  本站皆为作者原创，转载请注明原文链接：<a href="http://www.sucaihuo.com" target="_blank">www.sucaihuo.com</a>
+</div>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/flowplayer.js"></script>
+<script type="text/javascript">
+    flowplayer("player", "flowplayer.swf");
+    flowplayer("player2",
+        "flowplayer.swf", {
+            clip: {
+                url: "demo.flv", //视频文件地址
+                autoPlay: false, //是否自动播放
+                autoBuffering: true //是否自动缓冲，即当视频文件设置为不自动播放时，播放器仍然预先下载视频文件内容
+            }
+        }
+    );
+</script>
+</body>
+</html>
+

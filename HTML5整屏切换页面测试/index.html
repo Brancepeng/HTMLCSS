@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>整屏切换页面</title>
+    <!--CSS引用-->
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/flickerplate.css">
+    <link rel="stylesheet" type="text/css" href="css/onepage-scroll.css">
+    <!--JS库引用-->
+    <script src="../jquery/1.10.2/jquery-1.10.2.min.js"></script>
+    <script src="js/flickerplate.min.js"></script>
+    <script src="js/modernizr.custom.07427.js"></script>
+    <script src="js/jQuery.resizeEnd.min.js"></script>
+    <script src="js/jquery.onepage-scroll.min.js"></script>
+
+</head>
+<body class="loading">
+<div class="dowebok-hd">
+    <div class="inner">
+        <h1>
+            <a href="/">brancepengBlog</a></h1>
+        <ul class="nav">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">关于我</a></li>
+            <li><a href="#">慢生活</a></li>
+            <li><a href="#">相册</a></li>
+            <li><a href="#">碎言碎语</a></li>
+            <li><a href="#">资源分享</a></li>
+            <li><a href="#">学无止境</a></li>
+            <li><a href="#">留言板</a></li>
+        </ul>
+    </div>
+</div>
+<div class="main" id="main">
+    <div class="page page2">
+        <div class="txt">
+            <div class="h2" id="page2_h2">
+                自动识别运动模式&nbsp;</div>
+            <div class="h2_list" id="page2_list">
+                IDO ONE助您管理运动生活&nbsp;&nbsp;&nbsp;<br />
+                通过自动识别您的运动，您可以清楚自己步数，<br />
+                距离，卡路里消耗，<br />
+                让生活更智能，便捷，提升生活品质。<br />
+            </div>
+            <div class="page2_img1">
+                <img src="images/page2_img1.jpg">
+            </div>
+        </div>
+        <img src="images/img2-b.jpg" class="img2-b">
+    </div>
+    <div class="page page3">
+        <div class="txt">
+            <div class="h3" id="page3_h3">
+                自动监测睡眠状态&nbsp;</div>
+            <div class="h3_list" id="page3_list">
+                IDO ONE关心您的睡眠状况，助您改善睡眠质量&nbsp;&nbsp;&nbsp;<br />
+                通过睡眠数据监测，您可以了解每晚入睡后深度睡眠&nbsp;&nbsp;&nbsp;<br />
+                和浅度睡眠时间，还知道您夜晚清醒的次数，<br />
+                让您更了解入睡的自己，进一步提高睡眠质量。<br />
+            </div>
+            <div class="page3_img1">
+                <img src="images/page3_img1.jpg">
+            </div>
+        </div>
+    </div>
+
+    <div class="page page5">
+        <div class="flicker-example" data-block-text="false">
+            <ul>
+                <li data-background="images/phone.jpg">
+                    <div class="flick-title">
+                        Flickerplate Is Working</div>
+                    <div class="flick-sub-text">
+                        Heaven forbid this package you downloaded is broken. That wouldn't be embarrassing
+                        at all.</div>
+                </li>
+                <li data-background="images/misc.jpg">
+                    <div class="flick-title">
+                        Editable via Javascript or CSS</div>
+                    <div class="flick-sub-text">
+                        Take a look at the extensive documentation to see how you can change the settings
+                        in multiple ways.</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+    <script type="text/javascript">
+        $(function () {
+
+            $('.flicker-example').flicker({ flick_animation: 'jquery-slide' });
+            var $window = $(window);
+            var $wh = $window.height();
+            var $body = $('body');
+            var $main = $('.main');
+            var $responsiveImg = $('.responsiveImg');
+            var $responsiveFallback = false;
+
+            //页面加载时判断是否需要更换图片
+            if ($wh < 790) {
+                responsiveFn1();
+            }
+
+            //浏览器检测，判断是否为高级浏览器
+            if (Modernizr.cssanimations) {
+                $responsiveFallback = false;
+            } else {
+                $responsiveFallback = true;
+            }
+
+            //onepage_scroll方法
+            $main.onepage_scroll({
+                sectionContainer: '.page',
+                loop: false,
+                responsiveFallback: $responsiveFallback,
+                beforeMove: function (index) {
+                    $("#page2_h2").fadeOut();
+                    $("#page2_list").fadeOut();
+                    $(".page2_img1").fadeOut();
+
+                    $("#page3_h3").fadeOut();
+                    $("#page3_list").fadeOut();
+                    $(".page3_img1").fadeOut();
+
+                    $(".flick-title").fadeOut();
+                    $(".flick-sub-text").fadeOut();
+                    $("#page6_txt").fadeOut();
+                    $("#page6_list").fadeOut();
+                    $(".page6_img1").fadeOut();
+                    $("#page7_txt").fadeOut();
+                    $("#page7_list").fadeOut();
+                    $(".page7_img1").fadeOut();
+                },
+                afterMove: function (index) {
+                    switch (index) {
+                        case 1:
+                            var current = 0;
+                            var imgNum = 1;
+                            var interval = 0;
+                            setMode();
+                            break;
+                        case 2:
+                            $("#page2_h2").fadeIn();
+                            $("#page2_list").fadeIn(3000);
+                            $(".page2_img1").fadeIn(4000);
+                            break;
+                        case 3:
+                            $("#page3_h3").fadeIn();
+                            $("#page3_list").fadeIn(3000);
+                            $(".page3_img1").fadeIn(4000);
+                            break;
+                        case 5:
+                            $(".flick-title").fadeIn();
+                            $(".flick-sub-text").fadeIn(3000);
+                            break;
+                        case 6:
+                            $("#page6_txt").fadeIn();
+                            $("#page6_list").fadeIn(3000);
+                            $(".page6_img1").fadeIn(4000);
+                            break;
+                        case 7:
+                            $("#page7_txt").fadeIn();
+                            $("#page7_list").fadeIn(3000);
+                            $(".page7_img1").fadeIn(4000);
+                            break;
+                    }
+                }
+            });
+
+            //窗口改变大小切换不同的图片
+            $window.resizeEnd({
+                delay: 500
+            }, function () {
+                var $wh = $window.height();
+                if ($wh < 790) {
+                    responsiveFn1();
+                } else {
+                    responsiveFn2();
+                }
+            });
+
+            function responsiveFn1() {
+                $body.addClass('responsive-height-lt790')
+                $responsiveImg.each(function () {
+                    var $dateSmall = $(this).attr('date-small');
+                    $(this).attr('src', $dateSmall);
+                });
+            }
+
+            function responsiveFn2() {
+                $body.removeClass('responsive-height-lt790')
+                $responsiveImg.each(function () {
+                    var $dateBig = $(this).attr('date-big');
+                    $(this).attr('src', $dateBig);
+                });
+            }
+
+
+
+
+        });
+
+        //页面加载时的 Loading 效果
+        $(window).load(function () {
+            window.setTimeout(function () {
+                $('body').removeClass('loading');
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

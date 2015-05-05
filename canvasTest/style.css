@@ -1,0 +1,36 @@
+.body--ready {
+
+    background: -webkit-linear-gradient(top, rgb(203, 235, 219) 0%, rgb(55, 148, 192) 120%);
+    background: -moz-linear-gradient(top, rgb(203, 235, 219) 0%, rgb(55, 148, 192) 120%);
+    background: -o-linear-gradient(top, rgb(203, 235, 219) 0%, rgb(55, 148, 192) 120%);
+    background: -ms-linear-gradient(top, rgb(203, 235, 219) 0%, rgb(55, 148, 192) 120%);
+    background: linear-gradient(top, rgb(203, 235, 219) 0%, rgb(55, 148, 192) 120%);
+}
+body {
+    font-family: "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: #79a8ae;
+    color: #666;
+    font-size: 16px;
+    line-height: 1.5em;
+}
+
+h1 {
+    color: #111;
+    margin: 0 0 12px 0;
+    font-size: 24px;
+    line-height: 1.5em;
+}
+
+p {
+    margin: 0 0 10x 0;
+}
+
+a {
+    color: #888;
+    text-decoration: none;
+    border-bottom: 1px solid #ccc;
+}
+
+a:hover {
+    border-bottom-color: #888;
+}

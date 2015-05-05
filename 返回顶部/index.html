@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>jQuery实现简单而且很酷的返回顶部效果</title>
+    <meta name="keywords" content="jQuery顶部,jQuery返回顶部" />
+    <meta name="description" content="当用户浏览很长的页面时，可以通过点击页面右下角的“返回顶部”按钮返回到页面顶部。本文将使用gotoTop.js实现各种“返回顶部”的效果。" />
+    <link rel="stylesheet" type="text/css" href="http://www.sucaihuo.com/jquery/css/common.css" />
+    <style type="text/css">
+        .demo{height:1400px; padding-top:100px}
+        .demo p{text-align:center; height:32px; line-height:32px; font-size:16px}
+        .demo p span{margin:20px}
+        .demo p a.cur{color:#f60; font-weight:bold}
+        a.backToTop{width:60px; height:60px; background:#eaeaea url(images/top.gif) no-repeat -51px 0; text-indent:-999em}
+        a.backToTop:hover{background-position:-113px 0}
+    </style>
+</head>
+<body>
+<div class="head">
+    <!--<div class="head_inner">
+        <a class="logo" href="http://www.sucaihuo.com">
+            <img alt="素材火logo" src="http://www.sucaihuo.com/Public/images/logo.jpg"/>
+        </a>
+    </div>
+</div>-->
+<div class="container" id="main">
+    <h2 class="title"><a href="http://www.sucaihuo.com/js/31.html" target="_blank">jQuery实现简单而且很酷的返回顶部效果</a></h2>
+    <div class="demo">
+        <p>提示：请将页面向下滚动即可看到“返回顶部”按钮。</p>
+        <p><span><a href="index.html">演示1</a></span><span><a href="index2.html">演示2</a></span><span><a href="index3.html" class="cur">演示3</a></span></p>
+    </div>
+</div>
+<!--<div class="foot">
+    Powered by sucaihuo.com  本站皆为作者原创，转载请注明原文链接：<a href="http://www.sucaihuo.com" target="_blank">www.sucaihuo.com</a>
+</div>-->
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/gotoTop.js"></script>
+    <!--<script type="text/javascript" src="http://www.sucaihuo.com/Public/3d-album/other/jquery.3d-album"></script>-->
+<script type="text/javascript">
+    $(function() {
+        $(".backToTop").goToTop();
+        $(window).bind('scroll resize', function() {
+            $(".backToTop").goToTop();
+        });
+    });
+</script>
+</body>
+</html>
+

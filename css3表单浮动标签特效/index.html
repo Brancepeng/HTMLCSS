@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>12种炫酷SVG和CSS3表单浮动标签特效|DEMO</title>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/default.css">
+    <link rel="stylesheet" type="text/css" href="css/set2.css" />
+</head>
+<body>
+<section class="htmleaf-content bgcolor-4">
+    <h2>brancepeng个人主页</h2>
+<span class="input input--brancepeng">
+<input class="input__field input__field--brancepeng" type="text" id="input-7" />
+<label class="input__label input__label--brancepeng" for="input-7">
+    <span class="input__label-content input__label-content--brancepeng" data-content="Name">Name</span>
+</label>
+<svg class="graphic graphic--brancepeng" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+    <path d="M1200,9c0,0-305.005,0-401.001,0C733,9,675.327,4.969,598,4.969C514.994,4.969,449.336,9,400.333,9C299.666,9,0,9,0,9v43c0,0,299.666,0,400.333,0c49.002,0,114.66,3.484,197.667,3.484c77.327,0,135-3.484,200.999-3.484C894.995,52,1200,52,1200,52V9z"/>
+</svg>
+</span>
+<span class="input input--brancepeng">
+<input class="input__field input__field--brancepeng" type="text" id="input-8" />
+<label class="input__label input__label--brancepeng" for="input-8">
+    <span class="input__label-content input__label-content--brancepeng" data-content="Email">Email</span>
+</label>
+<svg class="graphic graphic--brancepeng" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+    <path d="M1200,9c0,0-305.005,0-401.001,0C733,9,675.327,4.969,598,4.969C514.994,4.969,449.336,9,400.333,9C299.666,9,0,9,0,9v43c0,0,299.666,0,400.333,0c49.002,0,114.66,3.484,197.667,3.484c77.327,0,135-3.484,200.999-3.484C894.995,52,1200,52,1200,52V9z"/>
+</svg>
+</span>
+<span class="input input--brancepeng">
+<input class="input__field input__field--brancepeng" type="text" id="input-9" />
+<label class="input__label input__label--brancepeng" for="input-9">
+    <span class="input__label-content input__label-content--brancepeng" data-content="Website">Website</span>
+</label>
+<svg class="graphic graphic--brancepeng" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+    <path d="M1200,9c0,0-305.005,0-401.001,0C733,9,675.327,4.969,598,4.969C514.994,4.969,449.336,9,400.333,9C299.666,9,0,9,0,9v43c0,0,299.666,0,400.333,0c49.002,0,114.66,3.484,197.667,3.484c77.327,0,135-3.484,200.999-3.484C894.995,52,1200,52,1200,52V9z"/>
+</svg>
+</span>
+</section>
+<div class="related">
+    <h3>
+        如果你喜欢我的主页，那么你可能也喜欢我的相册哦:</h3>
+    <a href="http://localhost:63342/jQuery/app/%E5%9F%BA%E4%BA%8Ejquery%E5%B8%A6%E6%97%B6%E9%97%B4%E8%BD%B4%E7%9A%84%E5%9B%BE%E7%89%87%E8%BD%AE%E6%92%AD%E5%88%87%E6%8D%A2%E4%BB%A3%E7%A0%81/index.html">
+        <img src="images/1.jpg" width="300" alt="基于jquery带时间轴的图片轮播切换特效" />
+        <h3>
+            小小彭的背景图册</h3>
+    </a><a href="http://www.htmleaf.com/jQuery/Form/201503161531.html">
+    <img src="images/6.jpg" width="300" height="117" alt="基于CSS3和jQuery实现的3D相册" />
+    <h3>
+        小小彭的3D相册</h3>
+</a>
+</div>
+<script src="js/classie.js"></script>
+<script>
+    (function () {
+        // trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
+        if (!String.prototype.trim) {
+            (function () {
+                // Make sure we trim BOM and NBSP
+                var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+                String.prototype.trim = function () {
+                    return this.replace(rtrim, '');
+                };
+            })();
+        }
+
+        [ ].slice.call(document.querySelectorAll('input.input__field')).forEach(function (inputEl) {
+            // in case the input is already filled..
+            if (inputEl.value.trim() !== '') {
+                classie.add(inputEl.parentNode, 'input--filled');
+            }
+
+            // events:
+            inputEl.addEventListener('focus', onInputFocus);
+            inputEl.addEventListener('blur', onInputBlur);
+        });
+
+        function onInputFocus(ev) {
+            classie.add(ev.target.parentNode, 'input--filled');
+        }
+
+        function onInputBlur(ev) {
+            if (ev.target.value.trim() === '') {
+                classie.remove(ev.target.parentNode, 'input--filled');
+            }
+        }
+    })();
+</script>
+</body>
+</html>
